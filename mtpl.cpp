@@ -1,22 +1,24 @@
-vec<vec<thuge>> mtpl(vec<vec<thuge>> a, vec<vec<thuge>> b) {
-	int n = b.size();
-	int m = a.size();
-	int k = b[0].size();
+template <class T> vec<vec<T>> mmult(vec<vec<T>> a, vec<vec<T>> b) {
+    const ll MOD = 10007;
 
-	vec<vec<thuge>> v(m, vec<thuge>(k));
+    int n = b.size();
+    int m = a.size();
+    int k = b[0].size();
 
-	fori(m) {
-		forj(k) {
-			rep(q, n) {
-				thuge t = v[i][j];
-				thuge f = a[i][q];
-				thuge g = b[q][j];
-				t = (t + f * g) % D;
+    vec<vec<T>> v(m, vec<T>(k));
 
-				v[i][j] = t;
-			}
-		}
-	}
+    fori(m) {
+        forj(k) {
+            rep(q, n) {
+                T t = v[i][j];
+                T f = a[i][q];
+                T g = b[q][j];
+                t = (t + f * g) % MOD;
 
-	re v;
+                v[i][j] = t;
+            }
+        }
+    }
+
+    re v;
 }
