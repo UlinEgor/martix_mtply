@@ -22,3 +22,9 @@ template <class T> vec<vec<T>> mmult(vec<vec<T>> a, vec<vec<T>> b) {
 
     re v;
 }
+
+template<class T> vec<vec<T>> mfast_pow(vec<vec<T>> v, ll p) {
+    if (p == 1) re v;
+    if (p % 2 == 0) re mfast_pow(mmult(v, v), p / 2);
+    re mmult(v, mfast_pow(v, p - 1));
+}
